@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 py-10 px-4">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold mb-6">Checkout</h2>
+
+        <!-- Checkout Form -->
+        <form id="checkoutForm" class="space-y-6">
+            <div>
+                <label class="block font-medium">Full Name</label>
+                <input name="fullName" required class="w-full border p-2 rounded" />
+            </div>
+            <div>
+                <label class="block font-medium">Shipping Address</label>
+                <textarea name="address" required class="w-full border p-2 rounded"></textarea>
+            </div>
+            <div>
+                <label class="block font-medium">Phone Number</label>
+                <input name="phone" required class="w-full border p-2 rounded" />
+            </div>
+
+            <!-- Payment Method -->
+            <div>
+                <label class="block font-medium mb-2">Choose Payment Method</label>
+                <div class="flex gap-6">
+                    <label><input type="radio" name="paymentMethod" value="card" checked> Card</label>
+                    <label><input type="radio" name="paymentMethod" value="upi"> UPI</label>
+                </div>
+            </div>
+
+            <!-- Card Inputs -->
+            <div id="cardFields">
+                <label class="block font-medium">Card Number</label>
+                <input type="text" placeholder="0000 0000 0000 0000" class="w-full border p-2 rounded mb-4" />
+
+                <div class="flex gap-4">
+                    <input type="text" placeholder="MM/YY" class="w-1/2 border p-2 rounded" />
+                    <input type="text" placeholder="CVV" class="w-1/2 border p-2 rounded" />
+                </div>
+            </div>
+
+            <!-- UPI Notice -->
+            <div id="upiNote" class="hidden bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4">
+                After clicking <strong>Place Order</strong>, your UPI app will open to pay ₹1845 to
+                <strong>9931617960@jio</strong>.
+            </div>
+
+            <button type="submit" class="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition">Place
+                Order</button>
+            <p id="confirmation" class="text-green-600 font-semibold text-center mt-4 hidden">🎉 Order placed
+                successfully! Redirecting...</p>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('checkoutForm');
+        const upiNote = document.getElementById('upiNote');
+        const cardFields = document.getElementById('cardFields');
+
+        // Toggle UPI/Card fields
+        form.paymentMethod.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (radio.value === 'upi' && radio.checked) {
+                    upiNote.classList.remove('hidden');
+                    cardFields.classList.add('hidden');
+                } else if (radio.value === 'card' && radio.checked) {
+                    upiNote.classList.add('hidden');
+                    cardFields.classList.remove('hidden');
+                }
+            });
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = form.fullName.value.trim();
+            const address = form.address.value.trim();
+            const phone = form.phone.value.trim();
+            const method = form.paymentMethod.value;
+
+            if (!name || !address || !phone) {
+                alert('Please fill all shipping details.');
+                return;
+            }
+
+            if (method === 'upi') {
+                // Open UPI intent for mobile
+                const amount = 1845;
+                const upiURL = `upi://pay?pa=9931617960@jio&pn=Aditya%20Raj&am=${amount}&cu=INR&tn=Epeoloides%20Order`;
+                setTimeout(() => {
+                    window.location.href = 'confirm.html';
+                }, 2000);
+                window.location.href = upiURL;
+
+            } else {
+                // Dummy card flow
+                document.getElementById('confirmation').classList.remove('hidden');
+                setTimeout(() => {
+                    window.location.href = 'verify.html';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>epeoloides | Luxury Fashion</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Hero section starts from the top */
+    .hero {
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* Navigation and logo over the hero section */
+    .nav-links,
+    .logo-section,
+    .secondary-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      /* Ensure they appear above the hero section */
+    }
+
+    .nav-links {
+      top: 1rem;
+      display: flex;
+
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .logo-section {
+      top: 4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+
+
+    /* Grid layout */
+    .grid {
+      top: -8vh;
+      display: grid;
+      padding: 4vh;
+      padding-top: 8vh;
+      padding-left: 8vh;
+      padding-right: 8vh;
+      min-height: 80vh;
+      position: relative;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .grid-item {
+      position: relative;
+      height: 110%;
+      /* Increase the height of the parent container */
+      overflow: visible;
+      /* Ensure child elements are not clipped */
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+
+    .brand-name {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+    }
+
+    /* Adjusted Text Overlay */
+    .text-overlay {
+      color: white;
+      position: absolute;
+      bottom: 40.5vh;
+      left: 3vw;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 20;
+      pointer-events: auto;
+    }
+
+    .text-overlay button {
+      background: none;
+      border: none;
+      color: white;
+      text-decoration: underline;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.75rem;
+      padding: 0;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+
+    /* p {
+      line-height: 0.4rem;
+      font-size: 1.4rem;
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      unicode-bidi: isolate;
+    } */
+
+    /* Middle grid */
+
+    .middle-grid {
+
+      margin-top: 3%;
+      display: grid;
+
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .middle-grid-item {
+      margin: 0.5rem;
+      /* padding: 3px; */
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      /* Prevent images from overflowing */
+    }
+
+    .middle-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    /* Full width section */
+    .full-width {
+      margin-bottom: 3rem;
+      margin-top: 2.2rem;
+      width: 100%;
+      height: 65vh;
+      position: relative;
+      overflow: hidden;
+      /* Prevent images from overflowing */
+    }
+
+    .full-width img {
+      width: 100%;
+      /* Ensure images take up the full width of their container */
+      height: 100%;
+      /* Ensure images take up the full height of their container */
+      object-fit: cover;
+      /* Maintain aspect ratio and crop excess */
+      filter: grayscale(100%);
+    }
+
+    /* World section with rem units for responsiveness */
+    .world-section {
+      width: 126rem;
+      /* Converted 2016px to rem (2016 / 16 = 126) */
+      height: 68.25rem;
+      /* Converted 1092px to rem (1092 / 16 = 68.25) */
+      margin: 2rem auto;
+      padding: 4.8125rem 0;
+      /* Converted 77px to rem (77 / 16 = 4.8125) */
+      overflow: visible;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .world-section h2 {
+      padding-top: 0rem;
+      padding-bottom: 5rem;
+      margin-left: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+
+    h3 {
+      display: block;
+      font-size: 1.17em;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      unicode-bidi: isolate;
+    }
+
+    .world-grid {
+      margin: 3rem;
+      padding-left: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      width: 114%;
+      height: 56%;
+      padding: 0px 2rem;
+    }
+
+
+    .world-grid-item {
+      position: relative;
+      width: 100%;
+      /* Ensure each item takes the full width of its column */
+      height: auto;
+      /* Allow dynamic height adjustment */
+      overflow: visible;
+      /* Ensure child elements are not clipped */
+    }
+
+    .world-grid-item img {
+      width: 100%;
+      /* Ensure images take up the full width of their container */
+      height: 100%;
+      /* Ensure images take up the full height of their container */
+      object-fit: cover;
+      /* Maintain aspect ratio and crop excess */
+
+    }
+
+    .world-grid-item .text-overlay {
+      position: absolute;
+      bottom: -11rem;
+      /* Adjusted bottom value */
+      left: 1.5rem;
+      color: white;
+      /* Ensure visibility over black background */
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 10;
+      /* Ensure it appears above other elements */
+      background-color: rgba(0, 0, 0, 0.7);
+      /* Add a semi-transparent black background */
+      padding: 0.5rem 1rem;
+      /* Add padding for better readability */
+      border-radius: 0.5rem;
+      /* Optional: Add rounded corners */
+    }
+
+    /* Footer */
+    footer {
+      /* padding: 40px 20px; */
+      /* background-color: white; */
+      border-top: 1px solid #eee;
+    }
+
+
+    .footer-top {
+      margin: 45px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .footer-column {
+      min-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .footer-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .store-locator {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    .store-locator input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-right: none;
+    }
+
+    .store-locator button {
+      padding: 10px 15px;
+      background-color: #eee;
+      border: 1px solid #ddd;
+    }
+
+    .newsletter-form {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-right: none;
+    }
+
+    .newsletter-form button {
+      padding: 10px 15px;
+      background-color: black;
+      color: white;
+      border: 1px solid black;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      position: relative;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom-links a:hover::after {
+      width: 100%;
+    }
+
+
+    .language-selector {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .language-selector select {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+    }
+
+    .footer-logo {
+      border-top: 1px solid black;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .footer-logo img {
+      filter: invert(1);
+      margin-top: 30px;
+      max-width: 250px;
+    }
+
+    .copyright {
+      padding: 20px;
+      /* text-align: center; */
+      font-size: 12px;
+      color: #777;
+
+    }
+
+    /* Small text overlay */
+    .small-text-overlay {
+      position: absolute;
+      bottom: 89px;
+      right: 129px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: left;
+
+    }
+
+    .small-text-overlay button {
+      background: none;
+      border: none;
+      color: white;
+      text-decoration: underline;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 10px;
+      padding: 0;
+      margin-top: 4px;
+      cursor: pointer;
+    }
+
+    /* Hover effects */
+    .nav-links a:hover,
+    .nav-actions button:hover,
+    .secondary-nav a:hover,
+    .text-overlay button:hover,
+    .small-text-overlay button:hover,
+    .newsletter-form button:hover {
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+
+      .grid,
+      .middle-grid,
+      .world-grid {
+        grid-template-columns: 1fr;
+        /* Stack items in a single column */
+      }
+
+      /* .footer-top,
+      .footer-bottom {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      } */
+
+
+
+      .brand-name {
+        font-size: 2rem;
+      }
+
+      .nav-links,
+      .secondary-nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a,
+      .nav-actions button,
+      .secondary-nav a {
+        font-size: 0.625rem;
+      }
+
+
+    }
+
+    /* Reusable image adjustment class */
+    .image-adjust {
+      width: auto;
+      /* Default width */
+      height: auto;
+      /* Default height */
+      object-fit: cover;
+      /* Default coverage */
+    }
+
+    /* Example usage: Override specific properties */
+    .image-adjust.custom {
+      width: 80%;
+      /* Example: Adjust width */
+      height: 300px;
+      /* Example: Adjust height */
+      object-fit: contain;
+      /* Example: Adjust coverage */
+    }
+
+    /* Reset overflow properties for images */
+    img {
+      height: 24vh;
+      overflow-clip-margin: unset;
+      overflow: unset;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Logo section styles */
+
+    .logo-section img {
+      width: 59vw;
+      height: 30vh;
+      object-fit: contain;
+      filter: invert(1);
+      /* Make the logo white */
+    }
+
+    /* Restore header, logo-section, and secondary-nav */
+    header,
+    .logo-section,
+    .secondary-nav {
+      position: static;
+      /* Restore default positioning */
+      z-index: auto;
+      /* Remove z-index adjustments */
+    }
+
+
+
+    /* Ensure hero section starts from the top */
+    .hero {
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* Place nav-links, logo-section, and secondary-nav over the hero section */
+    .nav-links,
+    .logo-section,
+    .secondary-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      /* Ensure they appear above the hero section */
+    }
+
+    /* Adjust spacing for each element */
+    .nav-links {
+      font-size: 1.2rem;
+      left: -42rem;
+      top: 1.3rem;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+    }
+
+    .logo-section {
+      top: 4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .secondary-nav {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      top: 19rem;
+      display: flex;
+      justify-content: center;
+      gap: 5.5rem;
+    }
+
+    /* Update nav-links and secondary-nav link colors */
+    .nav-links a,
+    .secondary-nav a {
+      text-decoration: none;
+      color: white;
+      /* Change text color to white */
+    }
+
+    .nav-links a:hover,
+    .secondary-nav a:hover {
+      opacity: 0.7;
+      /* Maintain hover effect */
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-actions button {
+      background: none;
+      border: none;
+      color: white;
+      letter-spacing: 0.1em;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .nav-actions button.hidden {
+      display: none;
+      /* Hide the button */
+    }
+
+    .nav-actions button:hover {
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Search box styles */
+    .search-container {
+      position: absolute;
+      top: 1rem;
+      right: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      /* Adjust spacing between label and input */
+    }
+
+    .search-container input[type="checkbox"] {
+      display: none;
+      /* Hide the checkbox */
+    }
+
+    .search-container label {
+      background: none;
+      border: none;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .search-container .search-box {
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: width 0.5s ease, opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-container .search-box input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid white;
+      background: black;
+      color: white;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .search-container input[type="checkbox"]:checked~.search-box {
+      width: 200px;
+      opacity: 1;
+    }
+
+    /* Adjust nav-actions for alignment and shared styling */
+    .nav-actions {
+      position: absolute;
+      top: -0.7rem;
+      /* Align with the navbar */
+      right: 3rem;
+      display: flex;
+      align-items: center;
+      /* Vertically align items */
+      /* gap: 1rem; */
+      /* Add spacing between elements */
+    }
+
+    .nav-actions button,
+    .nav-actions label {
+      background: none;
+      border: none;
+      color: white;
+      letter-spacing: 0.1em;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .nav-actions button:hover,
+    .nav-actions label:hover {
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-actions .search-box {
+      width: 192px;
+      opacity: 2;
+      overflow: hidden;
+      transition: width 0.5s cubic-bezier(0.42, 0, 0.49, 0.87), opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-actions .search-box input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid white;
+      background: black;
+      color: white;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-actions input[type="checkbox"] {
+      display: none;
+      /* Hide the checkbox */
+    }
+
+    .nav-actions input[type="checkbox"]:checked+.search-box {
+      width: 200px;
+      opacity: 1;
+    }
+
+    /* Products Section Styles */
+    #products-section {
+      margin-top: 4rem;
+      /* Increase the top margin */
+      background-color: white;
+      padding: 3rem;
+      /* Increase padding around the container */
+      min-height: 124vh;
+      /* Increase the minimum height */
+      position: relative;
+      overflow: visible;
+      /* Ensure child elements are not clipped */
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    #products-section .products-grid {
+      height: 40vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      /* Increase spacing between items */
+    }
+
+    #products-section .products-grid-item {
+      position: relative;
+      padding: 1rem;
+      /* Add more padding for better spacing */
+      height: auto;
+      /* Allow dynamic height adjustment */
+      min-height: 150vh;
+      /* Increase the minimum height of the parent */
+      overflow: visible;
+      /* Ensure child elements are not clipped */
+    }
+
+    #products-section .products-grid-item img {
+      width: 100%;
+      height: 108vh;
+      object-fit: cover;
+      border-radius: 8px;
+      height: auto;
+      /* Ensure images adjust dynamically */
+    }
+
+    #products-section .products-grid-item .text-overlay {
+      position: absolute;
+      bottom: 21.5rem;
+      left: 1.5rem;
+      color: black;
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    #products-section .products-grid-item .text-overlay button {
+      background: none;
+      border: none;
+      color: black;
+      text-decoration: underline;
+      font-size: 0.9rem;
+      /* Increase font size */
+      cursor: pointer;
+    }
+
+    #products-section .products-grid-item .text-overlay button:hover {
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+
+
+
+    .copyright {
+      text-align: left;
+      color: #999;
+    }
+
+    .copyright p {
+      padding-left: 1rem;
+      font-size: 0.8rem;
+    }
+
+    /* Ensure the search box is hidden by default */
+    .search-box {
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: width 0.5s ease, opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    /* When the checkbox is checked, show the search box */
+    #toggle-search:checked~.search-box {
+      width: 200px;
+      opacity: 1;
+    }
+
+    /* Style the label for better visibility */
+    label[for="toggle-search"] {
+      cursor: pointer;
+      color: white;
+      text-transform: uppercase;
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+
+    /* Ensure the search box is hidden by default */
+    .nav-actions .search-box {
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: width 0.5s ease, opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Show the search box when the checkbox is checked */
+    #toggle-search:checked~.search-box {
+      width: 192px;
+      opacity: 1;
+    }
+
+    /* Style the label for better visibility */
+    label[for="toggle-search"] {
+      cursor: pointer;
+      color: white;
+      text-transform: uppercase;
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+
+    /* Ensure the search box is hidden by default */
+    .nav-actions .search-box {
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: width 0.5s ease, opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-actions .search-box.active {
+      width: 192px;
+      opacity: 1;
+    }
+
+    /* Style the search button */
+    #search-button {
+      background: transparent;
+      /* border: 1px solid #ffffff73; */
+      color: white;
+      letter-spacing: 0.1em;
+      font-size: 1rem;
+      padding: 2.5rem 2rem;
+      cursor: pointer;
+      /* Ensure the cursor is a pointer all over the button */
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      box-sizing: border-box;
+      /* Include padding and border in the clickable area */
+      width: auto;
+      /* Ensure the button's width adjusts to its content */
+    }
+
+    /* Remove hover effect */
+    #search-button:hover {
+      background-color: transparent;
+      color: white;
+    }
+
+    /* Ensure the search box is hidden by default */
+    .search-box {
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: width 0.5s ease, opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Show the search box when active */
+    .search-box.active {
+      width: 198px;
+      opacity: 1;
+    }
+
+    /* Update secondary-nav link hover effect */
+    .secondary-nav a {
+      text-decoration: none;
+      color: white;
+      position: relative;
+    }
+
+    .secondary-nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+
+    .secondary-nav a:hover::after {
+      width: 100%;
+    }
+
+    a[href="/public/mens.html"] {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    a[href="/public/mens.html"]:hover {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+
+    /* Preview Overlay Styles */
+    .mens-preview-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+      display: none;
+      background: rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .mens-preview-overlay.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    .mens-preview-container {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      background: white;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      transform: translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+
+    .mens-preview-overlay.visible .mens-preview-container {
+      transform: translateY(0);
+    }
+
+    .preview-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Prevent flickering */
+    body.preview-active {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
+
+    .mens-link {
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .mens-link:hover {
+      color: #0066cc;
+    }
+
+    .close-preview {
+      position: absolute;
+      top: 140px;
+      right: 57px;
+      z-index: 10001;
+      color: #000000;
+
+      font-size: 3rem;
+      cursor: pointer;
+
+      width: 40px;
+      height: 40px;
+      line-height: 36px;
+      text-align: center;
+
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="mens-preview-overlay" id="previewOverlay">
+    <div class="mens-preview-container">
+      <button class="close-preview" id="closePreviewBtn" aria-label="Close Preview">&times;</button>
+      <iframe src="mens.html" class="preview-iframe" loading="eager"></iframe>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="grid">
+      <div class="grid-item">
+        <img src="/images/hero page.jpg" alt="Fashion model with curly hair">
+        <div class="text-overlay">
+          <p>Spring / Summer Women's adv Campaign signed steven</p>
+          <p>miesel</p>
+          </button>Shop the collection</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- First Navigation -->
+  <nav class="nav-links">
+    <a href="#">Fashion</a>
+    <a href="#">Casa</a>
+    <a href="#">Beauty</a>
+    <a href="#">Food&Beverages</a>
+    <a href="#">World</a>
+    <a href="#">Sustainability</a>
+  </nav>
+
+  <!-- Combined container for Search and Login buttons -->
+  <div class="nav-actions">
+    <button id="search-button">Search</button>
+    <div class="search-box">
+      <input type="text" name="search" id="search" placeholder="Search this website">
+    </div>
+    <a href="login.html" style="text-decoration: none;color:white;/* background:black; */cursor:pointer;z-index:1000;position:relative;">Login</a>
+    <button class="svg-action-btn"
+      style="background:none; border:none; cursor:pointer; margin-left:8px; display:flex; align-items:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+        <path
+          d="M6.1665 10.9069C6.1665 10.0894 6.1665 9.6806 6.31874 9.31306C6.47099 8.94552 6.76002 8.65649 7.33808 8.07843L9.61993 5.79657C10.198 5.21851 10.487 4.92948 10.8546 4.77724C11.2221 4.625 11.6309 4.625 12.4484 4.625H24.5513C25.3688 4.625 25.7776 4.625 26.1451 4.77724C26.5127 4.92948 26.8017 5.21851 27.3797 5.79657L29.6616 8.07843C30.2397 8.65649 30.5287 8.94552 30.6809 9.31306C30.8332 9.6806 30.8332 10.0894 30.8332 10.9069V28.375C30.8332 30.2606 30.8332 31.2034 30.2474 31.7892C29.6616 32.375 28.7188 32.375 26.8332 32.375H10.1665C8.28088 32.375 7.33808 32.375 6.75229 31.7892C6.1665 31.2034 6.1665 30.2606 6.1665 28.375V10.9069Z"
+          stroke="white" stroke-width="1.2" />
+        <path d="M6.1665 10.7917H30.8332" stroke="white" stroke-width="1.2" stroke-linecap="round" />
+        <path
+          d="M13.875 16.9583C13.875 18.185 14.3623 19.3613 15.2296 20.2287C16.097 21.0961 17.2734 21.5833 18.5 21.5833C19.7266 21.5833 20.903 21.0961 21.7704 20.2287C22.6377 19.3613 23.125 18.185 23.125 16.9583"
+          stroke="white" stroke-width="1.2" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Logo Section -->
+  <div class="logo-section">
+    <img src="/images/LOGO.png" alt="Epeoloides Logo">
+  </div>
+
+  <!-- Secondary Navigation -->
+  <div class="secondary-nav">
+    <a href="/public/index.html">HIGHLIGHTS</a>
+    <a href="#">WOMENS</a>
+    <a href="/public/productdescription.html" class="mens-link">MENS</a>
+    <a href="#">KIDS</a>
+  </div>
+
+  <!-- Middle Grid - Row 1 -->
+  <div class="middle-grid">
+    <div class="middle-grid-item">
+      <img src="images/detail page mid.jpg " alt="Fashion model in urban setting">
+    </div>
+
+  </div>
+
+  <!-- Middle Grid - Row 2 -->
+  <div class="middle-grid">
+    <div class="middle-grid-item">
+      <img src="images/detail page after mid.jpg" alt="Mirror selfie">
+      <div class="small-text-overlay">
+        <p>Spring / Summer 2023 Men's A/W Campaign</p>
+        <p>Styled by Steven Meisel</p>
+        <button>Shop the collection</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Models Section -->
+  <div class="full-width">
+    <img src="images/kevin-laminto-07wBhL5WqgI-unsplash.jpg" alt="Three models in white outfits">
+  </div>
+
+  <!-- Products Section -->
+  <div id="products-section">
+    <div class="products-grid">
+      <div class="products-grid-item">
+        <img src="images/04-desk-dg-main-adv-ss25.webp" alt="Men's bag">
+        <div class="text-overlay">
+          <h3>Men's Bags</h3>
+          <button>Shop Now</button>
+        </div>
+      </div>
+      <div class="products-grid-item">
+        <img src="images/05-desk-dg-main-adv-ss25.webp" alt="Men's shoes">
+        <div class="text-overlay">
+          <h3>Men's Shoes</h3>
+          <button>Shop Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- World of Epeoloides Section -->
+  <div class="world-section">
+    <h2>World of Epeoloides</h2>
+    <div class="world-grid">
+      <div class="world-grid-item">
+        <img src="images/mfs-fw25-desk.webp" alt="Fashion show">
+        <div class="text-overlay">
+          <h3>Men's Fall/Winter 2023 Fashion Show</h3>
+          <button>Discover More</button>
+        </div>
+      </div>
+      <div class="world-grid-item">
+        <img src="images/mostra-desk.webp" alt="Fashion event">
+        <div class="text-overlay">
+          <h3>Du Cœur À La Main - epeoloides</h3>
+          <button>Discover More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <footer>
+    <div class="footer-logo">
+      <img src=images/logo.png alt="epeoloides™">
+    </div>
+    <div class="footer-top">
+      <div class="footer-column">
+        <h4 class="footer-title">Store Locator</h4>
+        <p>Enter a location to find nearest store</p>
+        <div class="store-locator">
+          <input type="text" placeholder="Enter your location">
+          <button>Search</button>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-title">Subscribe to Newsletter</h4>
+        <p>Stay updated with our latest collections and offers</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email">
+          <button>Confirm</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-links">
+        <a href="#">SERVICES</a>
+        <a href="#">ORDER TRACKING</a>
+        <a href="#">RETURN</a>
+        <a href="#">CUSTOMER CARE</a>
+      </div>
+      <div class="language-selector">
+        <span>COUNTRY & LANGUAGE</span>
+        <select>
+          <option>Italy - English</option>
+          <option>USA - English</option>
+          <option>France - French</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>Site - Managed by epeoloides TM - Copyright © epeoloides TM 2025 - All rights reserved - any reproduction
+        of the contents is strictly forbidden.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Header scroll effect
+      const header = document.querySelector('header');
+      const secondaryNav = document.querySelector('.secondary-nav');
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          header.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+          header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+
+          if (secondaryNav) {
+            secondaryNav.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            secondaryNav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+          }
+        } else {
+          header.style.backgroundColor = 'black';
+          header.style.boxShadow = 'none';
+
+          if (secondaryNav) {
+            secondaryNav.style.backgroundColor = 'black';
+            secondaryNav.style.boxShadow = 'none';
+          }
+        }
+      });
+
+      // // Login button functionality
+      // const loginButton = document.getElementById('login-button');
+      // loginButton.addEventListener('click', function () {
+      //   alert('Redirecting to login page...');
+      //   // Add actual login redirection here
+      // });
+
+      // Search functionality
+      const searchInput = document.getElementById('search');
+      const searchBox = document.querySelector('.search-box');
+
+      // Add event listener for the Enter key
+      searchInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const query = searchInput.value.trim();
+          if (query) {
+            console.log(`Searching for: ${query}`); // Log the query for debugging
+            alert(`Searching for: ${query}`);
+            searchInput.value = ''; // Clear the input after search
+          } else {
+            alert('Please enter a search query.');
+          }
+        }
+      });
+
+      // Newsletter Subscription
+      const newsletterForm = document.querySelector('.newsletter-form');
+      const newsletterButton = newsletterForm.querySelector('button');
+      const newsletterPopup = document.createElement('div');
+      newsletterPopup.id = 'newsletterPopup';
+      newsletterPopup.style.position = 'fixed';
+      newsletterPopup.style.bottom = '-50px';
+      newsletterPopup.style.left = '50%';
+      newsletterPopup.style.transform = 'translateX(-50%)';
+      newsletterPopup.style.backgroundColor = '#333';
+      newsletterPopup.style.color = '#fff';
+      newsletterPopup.style.padding = '10px 20px';
+      newsletterPopup.style.borderRadius = '5px';
+      newsletterPopup.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+      newsletterPopup.style.fontSize = '14px';
+      newsletterPopup.style.zIndex = '1000';
+      newsletterPopup.style.transition = 'bottom 0.3s ease';
+      newsletterPopup.style.display = 'none';
+      document.body.appendChild(newsletterPopup);
+
+      newsletterButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        if (emailInput.value.trim()) {
+          showNewsletterPopup('Subscribed to epeoloides™');
+          emailInput.value = '';
+        } else {
+          alert('Please enter a valid email address.');
+        }
+      });
+
+      function showNewsletterPopup(message) {
+        newsletterPopup.textContent = message;
+        newsletterPopup.style.display = 'block';
+        newsletterPopup.style.bottom = '20px';
+
+        setTimeout(() => {
+          newsletterPopup.style.bottom = '-50px';
+          setTimeout(() => {
+            newsletterPopup.style.display = 'none';
+          }, 300);
+        }, 2000);
+      }
+
+      // Store Locator
+      const storeLocatorForm = document.querySelector('.store-locator');
+      storeLocatorForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const locationInput = this.querySelector('input[type="text"]');
+        if (locationInput.value) {
+          alert(`Searching for stores near "${locationInput.value}"...`);
+          locationInput.value = '';
+        } else {
+          alert('Please enter a location.');
+        }
+      });
+
+      // Add click handlers for all "Shop" and "Discover" buttons
+      const shopButtons = document.querySelectorAll('button');
+
+      shopButtons.forEach(button => {
+        if (button.textContent.includes('Shop') || button.textContent.includes('Discover')) {
+          button.addEventListener('click', function (e) {
+            e.preventDefault();
+            console.log('Button clicked:', this.textContent.trim());
+            // You would add actual navigation or action here
+          });
+        }
+      });
+
+      // Search button functionality
+      const searchButton = document.getElementById('search-button');
+      if (searchButton && searchBox) {
+        searchButton.addEventListener('click', function () {
+          searchBox.classList.toggle('active'); // Toggle the active class
+        });
+      }
+
+    });
+    // Hover Preview Functionality
+    (function () {
+      const overlay = document.getElementById('previewOverlay');
+      const mensLink = document.querySelector('.mens-link');
+      let isHoveringPreview = false;
+      let animationFrame;
+
+      if (!overlay || !mensLink) return;
+
+      // Show preview
+      mensLink.addEventListener('mouseenter', () => {
+        document.body.classList.add('preview-active');
+        overlay.style.display = 'block';
+        cancelAnimationFrame(animationFrame);
+        animationFrame = requestAnimationFrame(() => {
+          overlay.classList.add('visible');
+        });
+      });
+
+      // Hide preview
+      function hidePreview() {
+        overlay.classList.remove('visible');
+        setTimeout(() => {
+          if (!isHoveringPreview) {
+            overlay.style.display = 'none';
+            document.body.classList.remove('preview-active');
+          }
+        }, 300);
+      }
+
+      // Preview hover state
+      overlay.addEventListener('mouseenter', () => {
+        isHoveringPreview = true;
+      });
+
+      overlay.addEventListener('mouseleave', () => {
+        isHoveringPreview = false;
+        hidePreview();
+      });
+
+      // Link hover out
+      mensLink.addEventListener('mouseleave', (e) => {
+        if (!e.relatedTarget || !overlay.contains(e.relatedTarget)) {
+          hidePreview();
+        }
+      });
+
+      // Cleanup on unmount
+      window.addEventListener('beforeunload', () => {
+        cancelAnimationFrame(animationFrame);
+      });
+    })();
+
+    document.getElementById('closePreviewBtn').addEventListener('click', function () {
+      const overlay = document.getElementById('previewOverlay');
+      overlay.classList.remove('visible');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        document.body.classList.remove('preview-active');
+      }, 300);
+    });
+
+    // Example: Fetch products from backend
+    fetch('http://localhost:5000/api/products')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data); // Use this data to update your UI
+      });
+
+    // Example: Login request
+    fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: 'testuser', password: 'testpass' })
+    })
+      .then(res => res.json())
+      .then(data => {
+        // Save JWT token to localStorage/sessionStorage for authenticated requests
+        localStorage.setItem('token', data.token);
+      });
+  </script>
+</body>
+
+</html>

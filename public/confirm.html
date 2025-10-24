@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirm UPI Payment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded shadow-lg text-center max-w-md">
+    <h1 class="text-2xl font-bold mb-4">Confirm UPI Payment</h1>
+    <p class="mb-4 text-gray-600">
+      Have you completed the payment of <strong>₹1845</strong> to
+      <strong>9931617960@jio</strong> using your UPI app?
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button onclick="window.location.href='thankyou.html'"
+        class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">Yes, I Paid</button>
+
+      <button onclick="window.location.href='checkout.html'"
+        class="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition">No, Retry</button>
+    </div>
+  </div>
+</body>
+
+</html>
